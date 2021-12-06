@@ -1,10 +1,11 @@
 import java.util.Date;
+import java.util.ArrayList;
 
 public class Employee {
     private int id;
     private String name;
     private boolean active;
-    private long[] attendance;
+    private ArrayList<Date> attendance = new ArrayList<>();
 
     Employee(String name) {
         this.name = name;
@@ -35,13 +36,13 @@ public class Employee {
     }
 
     public void addAttendance() {
-        this.attendance[this.attendance.length] = new Date().getTime();
+        this.attendance.add(new Date());
     }
 
     public void listAttendances() {
-        System.out.println("==== " + this.name + "Attendance ===");
-        for (int i = 0; i < this.attendance.length; i++) {
-            System.out.println();
+        System.out.println("==== " + this.name + "'s Attendance ===");
+        for (int i = 0; i < this.attendance.size(); i++) {
+            System.out.println(this.attendance.get(i));
         }
     }
 
